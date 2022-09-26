@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "install:api": "cd src/app/server/movie-api && npm i",
+    "start": "ng serve & cd src/app/server/movie-api && npm run dev",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
