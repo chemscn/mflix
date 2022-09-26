@@ -1,6 +1,13 @@
-<navbar (updateMovies)="setMovies($event)" (openedEvent)="setIsOpen($event)"></navbar>
-<div [ngClass]="{ 'movie-container-open': isOpen }" class="movie-container">
-  <ng-container *ngFor="let movie of movies">
-    <movie-card [movie]="movie"></movie-card>
+<navbar></navbar>
+<div [ngClass]="{ 'movie-container-open': navbarState.getState().isNavbarOpen}" class="movie-container">
+  <ng-container *ngIf="navbarState.getState().moviesObject.length ===0; else moviesByGenre">
+    <ng-container *ngFor="let movie of movies">
+      <movie-card [movie]="movie"></movie-card>
+    </ng-container>
   </ng-container>
+  <ng-template #moviesByGenre>
+    <ng-container *ngFor="let movie of navbarState.getState().moviesObject">
+      <movie-card [movie]="movie"></movie-card>
+    </ng-container>
+  </ng-template>
 </div>

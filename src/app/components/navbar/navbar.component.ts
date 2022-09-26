@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MovieService } from 'src/app/services/movie.service';
+import {store} from '../../store/store';
 
 @Component({
   selector: 'navbar',
@@ -15,8 +16,6 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   isOpen: boolean = false;
-  @Output() openedEvent = new EventEmitter();
-  @Output() updateMovies = new EventEmitter();
   subscriptions: Subscription = new Subscription();
   genres: string[] = [
     'Drama',
@@ -44,13 +43,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   public toggleSidebar = () => {
     this.isOpen = !this.isOpen;
-    this.openedEvent.emit(this.isOpen);
+    store.setState({isNavbarOpen: this.isOpen});
+    console.log(store.getState().isNavbarOpen);
   };
 
   public getMoviesByGenre = (genre: string) => {
     this.subscriptions.add(
       this.movieService.getMovies(genre).subscribe((movies) => {
-        this.updateMovies.emit(movies);
+        store.setState({moviesObject: movies as any})
       })
     );
   };
