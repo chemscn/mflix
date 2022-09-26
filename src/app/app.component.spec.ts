@@ -1,11 +1,17 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MovieService } from './services/movie.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientModule],
+      providers:[MovieService],
       declarations: [
-        AppComponent
+        AppComponent,
+        NavbarComponent
       ],
     }).compileComponents();
   });
@@ -22,10 +28,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('movieFX');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('movieFX app is running!');
-  });
 });

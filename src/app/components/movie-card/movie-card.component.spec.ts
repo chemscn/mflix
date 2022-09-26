@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { mock_movie } from '../test-mocks/test-mock-value';
 
 import { MovieCardComponent } from './movie-card.component';
 
@@ -16,6 +17,7 @@ describe('MovieCardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MovieCardComponent);
     component = fixture.componentInstance;
+    component.movie = mock_movie;
     fixture.detectChanges();
   });
 
