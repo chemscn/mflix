@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
@@ -6,10 +13,11 @@ import { MovieService } from 'src/app/services/movie.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   isOpen: boolean = false;
   @Output() openedEvent = new EventEmitter();
   @Output() updateMovies = new EventEmitter();
+  subscriptions: Subscription = new Subscription();
   genres: string[] = [
     'Drama',
     'History',
@@ -40,8 +48,14 @@ export class NavbarComponent implements OnInit {
   };
 
   public getMoviesByGenre = (genre: string) => {
-    this.movieService.getMovies(genre).subscribe((movies) => {
-      this.updateMovies.emit(movies);
-    });
+    this.subscriptions.add(
+      this.movieService.getMovies(genre).subscribe((movies) => {
+        this.updateMovies.emit(movies);
+      })
+    );
   };
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
 }

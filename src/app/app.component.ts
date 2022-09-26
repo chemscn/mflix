@@ -30,14 +30,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.movies = movies;
   }
 
-  public resetMovies = ()=>{
-    this.subscriptions.add(
-      this.movieService.getMovies().subscribe((movies: Movie[]) => {
-        this.movies = movies;
-      })
-    );
-  }
-
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }

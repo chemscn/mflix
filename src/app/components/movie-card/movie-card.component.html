@@ -1,16 +1,36 @@
-<div class="movie-card-container">
+<div (click)="showMovieDetails()" class="movie-card-container">
   <div class="movie-card">
-    <div class="movie-image-container">
-      <img
-        [src]="movie.poster"
-        [attr.alt]="movie.title"
-      />
-    </div>
-    <h4 class="movie-title">{{ movie.title }}</h4>
-    {{ language }}
-    <ng-container *ngIf="movie.imdb; else noRating">
-      <rating [imdb]="movie.imdb"></rating>
+    <ng-container *ngIf="!showDetail; else showDetails">
+      <div class="movie-image-container">
+        <img [src]="movie.poster" [attr.alt]="movie.title" />
+      </div>
+      <h4 class="movie-title">{{ movie.title }}</h4>
+      {{ language }}
+      <ng-container *ngIf="movie.imdb; else noRating">
+        <rating [imdb]="movie.imdb"></rating>
+      </ng-container>
+      <ng-template #noRating> no rating </ng-template>
     </ng-container>
-    <ng-template #noRating> no rating </ng-template>
+    <ng-template #showDetails>
+      <div class="detail-container">
+        <p>Plot: {{ movie.plot }}</p>
+        <p>
+          Genres: {{ movie.genres ? movie.genres.join(", ") : "Not Available" }}
+        </p>
+        <p>
+          Writers:
+          {{ movie.writers ? movie.writers.join(", ") : "Not Available" }}
+        </p>
+        <p>Cast: {{ movie.cast ? movie.cast.join(", ") : "Not Available" }}</p>
+        <h4>Awards</h4>
+        <p>Wins: {{ movie.awards ? movie.awards[0].wins : "Not Available" }},</p>
+        <p>
+          Nominations:
+          {{ movie.awards ? movie.awards[0].nominations : "Not Available" }}
+        </p>
+        <p>Release: {{ movie.year }}</p>
+        <p></p>
+      </div>
+    </ng-template>
   </div>
 </div>

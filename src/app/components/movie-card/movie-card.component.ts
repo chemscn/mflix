@@ -8,6 +8,7 @@ import { Movie } from 'src/app/models';
 })
 export class MovieCardComponent implements OnInit {
   @Input() movie: Movie;
+  showDetail: boolean = false;
   language: string;
 
   constructor() { }
@@ -18,6 +19,10 @@ export class MovieCardComponent implements OnInit {
     } else {
       this.language = 'Language: Not Available';
     }
+  }
+
+  public showMovieDetails =()=>{
+    this.showDetail = !this.showDetail;
   }
 
 }

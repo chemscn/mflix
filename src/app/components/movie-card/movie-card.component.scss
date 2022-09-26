@@ -10,7 +10,6 @@
   min-width: 400px;
   min-height: 200px;
 
-
   .movie-card {
     display: flex;
     flex-direction: column;
@@ -32,6 +31,13 @@
       color: white;
       object-fit: fill;
     }
+  }
+  .detail-container{
+    height: 519px;
+    max-height: 519px;
+    padding: 20px;
+    transition: all .5s;
+
   }
   .movie-card-container:hover {
      box-shadow: 4px 4px 4px $secondary-color .3s;
