@@ -1,0 +1,11 @@
+<div class="rating-container">
+  <ng-container *ngFor="let number of filledStars">
+    <span class="bi-star-fill"></span>
+  </ng-container>
+  <ng-container *ngFor="let number of unfilledStars">
+    <span class="bi-star"></span>
+  </ng-container>
+</div>
+<div class="rating-text">
+  <p>{{ ratingText }}</p>
+</div>

@@ -1,0 +1,16 @@
+<div class="movie-card-container">
+  <div class="movie-card">
+    <div class="movie-image-container">
+      <img
+        [src]="movie.poster"
+        [attr.alt]="movie.title"
+      />
+    </div>
+    <h4 class="movie-title">{{ movie.title }}</h4>
+    {{ language }}
+    <ng-container *ngIf="movie.imdb; else noRating">
+      <rating [imdb]="movie.imdb"></rating>
+    </ng-container>
+    <ng-template #noRating> no rating </ng-template>
+  </div>
+</div>

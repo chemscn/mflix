@@ -1,0 +1,22 @@
+<div
+  [ngClass]="{
+    'sidebar-open': isOpen
+  }"
+  class="sidebar"
+>
+  <a class="closebtn" (click)="toggleSidebar()">×</a>
+  <h4>Genres</h4>
+  <ng-container *ngFor="let genre of genres">
+    <a (click)="getMoviesByGenre(genre.toLowerCase())">{{ genre }}</a>
+  </ng-container>
+</div>
+<div
+  [ngClass]="{
+    'navbar-open': isOpen
+  }"
+  class="navbar"
+>
+  <span (click)="toggleSidebar()" class="bi-list"></span>
+  <div *ngIf="isOpen" class="spacer"></div>
+  <h3>MFLIX</h3>
+</div>

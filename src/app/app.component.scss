@@ -1,0 +1,19 @@
+@import "../styles.scss";
+body {
+  font-size: 18px;
+}
+html {
+  background-color: $secondary-color;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  gap: 20;
+  padding-bottom: 20px;
+  &.movie-container-open {
+    margin-left: 15%;
+  }
+}

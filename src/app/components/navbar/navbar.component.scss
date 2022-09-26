@@ -1,0 +1,81 @@
+@import "../../../styles.scss";
+@import "~bootstrap-icons";
+.sidebar {
+  transition: width .5s;
+  height: 100%;
+  width: 0%;
+  position: fixed;
+  overflow: hidden;
+  z-index: 1;
+  top: 8;
+  left: 0;
+  background-color: black;
+  border: 0px 1px 1px 1px solid $primary-color;
+  &.sidebar-open {
+    width: 14.7%;
+  }
+
+}
+
+.sidebar a,h4 {
+  padding: 8px 8px 8px 12px;
+  text-decoration: none;
+  font-size: 22px;
+  color: $primary-color;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: $secondary-color;
+  cursor: pointer;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.navbar {
+  transition: margin-left 0.5s;
+  background-color: black;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin-bottom: 40px;
+
+  > .bi-list {
+    font-size: 36px;
+    margin-left: 10px;
+  }
+  > .bi-list:hover {
+    cursor: pointer;
+    color: $secondary-color;
+  }
+  > h3 {
+    margin-left: 10px;
+  }
+  &.navbar-open {
+    margin-left: 14.7%;
+  }
+
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}

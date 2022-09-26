@@ -1,0 +1,18 @@
+@import '~bootstrap-icons';
+@import '../../../styles.scss';
+
+.rating-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+.bi-star-fill {
+  color: $secondary-color;
+}
+
+.rating-text
+ {
+  text-align: center;
+ }
