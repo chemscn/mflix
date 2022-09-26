@@ -4,11 +4,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-Start by installing by the frontend and backend. Run `npm i && npm run install:api`
+Start by installing both the frontend and backend. Run `npm i && npm run install:api`
 
 ## Running the application
 Running `npm start` will run the frontend and backend.
 
+View application at http://localhost:4200/
 
 ## Code scaffolding
 
