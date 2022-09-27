@@ -8,7 +8,7 @@
 
 # Node
 /node_modules
-/src/app/server/movie-api/node_modules
+/server/movie-api/node_modules
 npm-debug.log
 yarn-error.log
 

@@ -17,9 +17,11 @@ export class RatingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.filledStars = Array.from(Array(Math.round(this.imdb.rating)).keys())
-    this.unfilledStars = Array.from(Array(Math.round(this.maxStars- this.imdb.rating)).keys())
-    this.ratingText = `${this.imdb.rating}/${this.maxStars}`
+    if(this.imdb.rating){
+      this.filledStars = Array.from(Array(Math.round(this.imdb.rating)).keys())
+      this.unfilledStars = Array.from(Array(Math.round(this.maxStars- this.imdb.rating)).keys())
+      this.ratingText = `${this.imdb.rating}/${this.maxStars}`
+    }
   }
 
 }

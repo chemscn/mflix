@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RatingComponent } from '../rating/rating.component';
 import { mock_movie } from '../test-mocks/test-mock-value';
 
 import { MovieCardComponent } from './movie-card.component';
@@ -9,7 +10,7 @@ describe('MovieCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MovieCardComponent ]
+      declarations: [ MovieCardComponent, RatingComponent ]
     })
     .compileComponents();
   });
